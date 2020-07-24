@@ -29,9 +29,9 @@ def start():
     hour = 7
     minute = 0
     print("It's another day.")
-    print("The alarm goes off, it's %d:%d0 AM." % (hour, minute))
     
     while True:
+        print("The alarm goes off, it's %d:%d0 AM." % (hour, minute))
         decision = begin_day(hour, minute)
         if decision == "new_day":
             continue

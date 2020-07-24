@@ -1,40 +1,45 @@
+def decision_options(option1, option2):
+    print("(%r or %r)" % (option1, option2))
 
-
-def begin_day(hour, minute):
-    print("Do you even feel like you want to get out of bed?")
-    print("Get out of bed or stay in bed")
+def begin_day():
+    sleep_in_counter = 0
+    print("Do you want to get the day started?")
+    cldecision_options("Out of bed", "Stay in bed")
     while True:
         decision = input("> ")
-        if "stay" in decision and minute == 6:
+        if "stay" in decision and sleep_in_counter == 2:
             print("Clearly you don't want to go to work today.\nCall in sick and wake up another day.")
             return "new_day"
         elif "stay" in decision:
-            print("The clock says it's: %d:%d0 AM." % (hour, minute))
             print("You lay in bed for another 20 mins.")
-            minute += 2
-        elif "get" in decision:
+            sleep_in_counter += 1
+        elif "out" in decision:
             print("You get up and piss.")
-            print("Do you want to make coffee or stretch?")
-            return "coffee or stretch"
+            return "out"
         else:
             print("Make a decision.")
 
     
+def morning_routine():
+    coffee_counter = 0
 
-    
+def work_time_skip():
+    print("You log in to your work station remotely.")
+    print("The next 8 hours of your life pass by as you stare into the screen.")
+    print("Some days, it feels longer. Some days, the time flies by.")
     
 
 
 def start():
-    hour = 7
-    minute = 0
-    print("It's another day.")
-    
     while True:
-        print("The alarm goes off, it's %d:%d0 AM." % (hour, minute))
-        decision = begin_day(hour, minute)
+        print("It's another day. Rise and shine.")
+        print("The alarm goes off, it's 8:00 AM.")
+        decision = begin_day()
         if decision == "new_day":
             continue
+        elif decision == "out":
+            print("You're out of bed.\nWork starts at 9:00 AM.")
+            decision = morning_routine()
         else:
             print("YOU MADE IT! %r" % decision)
         
